@@ -1,0 +1,280 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Skills Network Labs</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      <link rel="stylesheet"
+            href="/hub/static/css/style.min.css?v=de37c927476e635f657bafc35a5e1ae9c0f3ce691c5779b0d3be84fa5e2ec3813214270a51f83fc93b945e5d7e418046af1e370e9538ea8a44d49d472ee7dffe"
+            type="text/css" />
+    
+    
+      <link rel="icon" href="/hub/static/favicon.ico?v=fde5757cd3892b979919d3b1faa88a410f28829feb5ba22b6cf069f2c6c98675fceef90f932e49b510e74d65c681d5846b943e7f7cc1b41867422f0481085c1f" type="image/x-icon">
+    
+    
+      <script src="/hub/static/components/bootstrap/dist/js/bootstrap.bundle.min.js?v=ecf8bfa2d7656db091f8b9d6f85ecfc057120c93ae5090773b1b441db838bd232fcef26375ee0fa35bf8051f4675cf5a5cd50d155518f922b9d70593f161741a" type="text/javascript" charset="utf-8"></script>
+      <script src="/hub/static/components/requirejs/require.js?v=1ff44af658602d913b22fca97c78f98945f47e76dacf9800f32f35350f05e9acda6dc710b8501579076f3980de02f02c97f5994ce1a9864c21865a42262d79ec" type="text/javascript" charset="utf-8"></script>
+      <script src="/hub/static/components/jquery/dist/jquery.min.js?v=bf6089ed4698cb8270a8b0c8ad9508ff886a7a842278e98064d5c1790ca3a36d5d69d9f047ef196882554fc104da2c88eb5395f1ee8cf0f3f6ff8869408350fe" type="text/javascript" charset="utf-8"></script>
+      <script src="/hub/static/js/darkmode.js?v=2fd9a7d11ad78df9351fed40ab35eab52e1e6a3d516f188b652120e6faf57b8e387a30aae8f52a6fb51563d06d04545c7005da0b77a98c21b0bd28f6d1cdfa11" type="text/javascript" charset="utf-8"></script>
+    
+    
+    
+    <script type="text/javascript">
+      require.config({
+        
+        urlArgs: "v=20250328161103",
+        
+        baseUrl: '/hub/static/js',
+        paths: {
+          components: '../components',
+          jquery: '../components/jquery/dist/jquery.min',
+          moment: "../components/moment/moment",
+        },
+      });
+
+      window.jhdata = {
+        base_url: "/hub/",
+        prefix: "/",
+        
+        user: "kouameamoisa",
+        
+        
+        admin_access: false,
+        
+        
+        options_form: false,
+        
+        xsrf_token: "MnwxOjB8MTA6MTc0MzUxMjk1OXw1Ol94c3JmfDg4OlpUZGhZamN5T1dVeFpqWmhOREU0TW1GaE1UTmtNMk0zTWpNMlltWXhNbUU2TWpKbE5URXdNRFkzTkdZeE5EZ3pZVGs0WWpFeE1Ea3hPREl4TldObVpUWT18ODM0YjI5MGQ4MjBjOTJlMjU3NDVmOWZhNTdlZmUwYWJiNWU5ZWNlMTE2ODM4MmMxYmQyZDM1YjhjZDg5MDEwMg",
+      };
+
+</script>
+    
+    
+      <meta name="description" content="JupyterHub">
+      <meta name="keywords" content="Jupyter, JupyterHub">
+    
+  </head>
+  <body>
+    <noscript>
+      <div id='noscript'>
+        JupyterHub requires JavaScript.
+        <br>
+        Please enable it to proceed.
+      </div>
+    </noscript>
+    
+
+    
+      
+    
+    
+<br>
+<br>
+
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        
+          <p>Your server is starting up.</p>
+          <p>You will be redirected automatically when it's ready for you.</p>
+        
+        <div class="progress">
+          <div id="progress-bar"
+               class="progress-bar"
+               role="progressbar"
+               aria-valuenow="0"
+               aria-valuemin="0"
+               aria-valuemax="100">
+            <span class="sr-only"><span id="sr-progress">0%</span> Complete</span>
+          </div>
+        </div>
+        <p id="progress-message"></p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <details id="progress-details">
+          <summary>Event log</summary>
+          <div id="progress-log"></div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+
+    
+    
+    
+  
+  
+  <div class="modal fade"
+       id="error-dialog"
+       tabindex="-1"
+       role="dialog"
+       aria-labelledby="error-label"
+       aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="error-label">Error</h2>
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+      <div class="ajax-error alert-danger">The error</div>
+    </div>
+        <div class="modal-footer">
+          <button type="button"
+                  class="btn btn-primary"
+                  data-bs-dismiss="modal"
+                  data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+
+  
+<script src="https://browser.sentry-cdn.com/5.7.1/bundle.min.js" integrity="sha384-KMv6bBTABABhv0NI+rVWly6PIRvdippFEgjpKyxUcpEmDWZTkDOiueL5xW+cztZZ" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/event-source-polyfill/0.0.9/eventsource.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+<script>
+  Sentry.init({ dsn: 'https://b62337c247e041c68a1f0025cfecc2d1@sentry.skills.network/18' });
+</script>
+<script>
+  function sendLog(username, errorData) {
+    var request = new XMLHttpRequest();
+    request.open("POST", "https://messaging.skills.network/user/" + username + "/error", true);
+    request.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcmdhbml6YXRpb24iOiJzbiIsInByb2dyYW0iOiJsYWJzIiwicHJvamVjdCI6InRvb2wiLCJvcHRpb25zIjp7InBlcm1pdHRlZFR5cGUiOiJ1c2VyIiwicGVybWl0dGVkQWN0aW9ucyI6WyJlcnJvciJdfSwiaWF0IjoxNTk2MDMzODEwfQ.fqjCDCR8FJHDPIyqa6Qn5VhCdhx8safH0VGAbBLioJk");
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify({ data: errorData}));
+    request.onreadystatechange = function () {
+      if (request.readyState == 4 && request.status == 201) {
+          console.log('Reported that tool failed to start');
+      }
+    }
+  }
+</script>
+
+    
+
+  <script type="text/javascript">
+    require(["jquery"], function($) {
+      $("#refresh").click(function() {
+        window.location.reload();
+      });
+
+      // hook up event-stream for progress
+      var evtSource = new EventSource("/hub/api/users/kouameamoisa/server/progress?_xsrf=MnwxOjB8MTA6MTc0MzUxMjk1OXw1Ol94c3JmfDg4OlpUZGhZamN5T1dVeFpqWmhOREU0TW1GaE1UTmtNMk0zTWpNMlltWXhNbUU2TWpKbE5URXdNRFkzTkdZeE5EZ3pZVGs0WWpFeE1Ea3hPREl4TldObVpUWT18ODM0YjI5MGQ4MjBjOTJlMjU3NDVmOWZhNTdlZmUwYWJiNWU5ZWNlMTE2ODM4MmMxYmQyZDM1YjhjZDg5MDEwMg");
+      var progressMessage = $("#progress-message");
+      var progressBar = $("#progress-bar");
+      var srProgress = $("#sr-progress");
+      var progressLog = $("#progress-log");
+
+      evtSource.onmessage = function(e) {
+        var evt = JSON.parse(e.data);
+        console.log(evt);
+        if (evt.progress !== undefined) {
+          // update progress
+          var progText = evt.progress.toString();
+          progressBar.attr('aria-valuenow', progText);
+          srProgress.text(progText + '%');
+          progressBar.css('width', progText + '%');
+        }
+        // update message
+        var html_message;
+        if (evt.html_message !== undefined) {
+          progressMessage.html(evt.html_message);
+          html_message = evt.html_message;
+        } else if (evt.message !== undefined) {
+          progressMessage.text(evt.message);
+          html_message = progressMessage.html();
+        }
+        if (html_message) {
+          progressLog.append(
+            $("<div>")
+            .addClass('progress-log-event')
+            .html(html_message)
+          );
+        }
+
+        if (evt.ready) {
+          evtSource.close();
+          // reload the current page
+          // which should result in a redirect to the running server
+          window.location.reload();
+        }
+
+        if (evt.failed) {
+          evtSource.close();
+          // turn progress bar red
+          progressBar.addClass('progress-bar-danger');
+          // open event log for debugging
+          $('#progress-details').prop('open', true);
+        }
+      };
+
+      // signal that page has finished loading (mostly for tests)
+      window._jupyterhub_page_loaded = true;
+    });
+  </script>
+
+<script type="text/javascript">
+  // hook up event-stream for progress
+  var evtSource = new EventSource("/hub/api/users/kouameamoisa/server/progress?_xsrf=MnwxOjB8MTA6MTc0MzUxMjk1OXw1Ol94c3JmfDg4OlpUZGhZamN5T1dVeFpqWmhOREU0TW1GaE1UTmtNMk0zTWpNMlltWXhNbUU2TWpKbE5URXdNRFkzTkdZeE5EZ3pZVGs0WWpFeE1Ea3hPREl4TldObVpUWT18ODM0YjI5MGQ4MjBjOTJlMjU3NDVmOWZhNTdlZmUwYWJiNWU5ZWNlMTE2ODM4MmMxYmQyZDM1YjhjZDg5MDEwMg");
+  var progressMessage = document.querySelector("#progress-message");
+  var progressBar = document.querySelector("#progress-bar");
+  var srProgress = document.querySelector("#sr-progress");
+  var progressLog = document.querySelector("#progress-log");
+  evtSource.onmessage = function(e) {
+    var evt = JSON.parse(e.data);
+    console.log(evt);
+    if (evt.progress !== undefined) {
+      // update progress
+      var progText = evt.progress.toString();
+      progressBar.setAttribute('aria-valuenow', progText);
+      srProgress.textContent = progText + '%';
+      progressBar.style.width = progText+'%';
+    }
+    // update message
+    var html_message;
+    if (evt.html_message !== undefined) {
+      progressMessage.innerHTML = evt.html_message;
+      html_message = evt.html_message;
+    } else if (evt.message !== undefined) {
+      progressMessage.textContent = evt.message
+      html_message = progressMessage.innerHTML;
+    }
+    if (html_message) {
+      let logEvent = document.createElement('div')
+      logEvent.classList.add('progress-log-event')
+      logEvent.innerHTML = html_message;
+      progressLog.appendChild(logEvent)
+    }
+    if (evt.ready) {
+      evtSource.close();
+      // reload the current page
+      // which should result in a redirect to the running server
+      window.location.reload();
+    }
+    if (evt.failed) {
+      evtSource.close();
+      // turn progress bar red
+      progressBar.classList.add('progress-bar-danger');
+      // open event log for debugging
+      document.querySelector('#progress-details').open = true;
+      Sentry.captureMessage('Failed to start tool for kouameamoisa')
+      sendLog('kouameamoisa', { severity: 'critical', title: 'failed to start tool for user: kouameamoisa', domain: window.location.hostname, tag: ["labs", "tools", "error", "tool-failed-to-start"] })
+
+    }
+  }
+</script>
+
+  </body>
+</html>
